@@ -6,13 +6,13 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 CORS(app) # This allows React to talk to Flask
-
+swagger = Swagger(app) # Initialize Swagger
 
 def scrape_hacker_news():
     url = "https://news.ycombinator.com/"
     headers = {'User-Agent': 'Mozilla/5.0'} # Pretend to be a browser
     try:
-        response = requests.get(url, headers=headers, timeout=0)
+        response = requests.get(url, headers=headers, timeout=5)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -59,5 +59,3 @@ def get_news():
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
 
-if __name__== '__main__':
-    app.run(debug=True, port=5000)

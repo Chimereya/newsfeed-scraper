@@ -1,0 +1,12 @@
+# Python environment
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Flask specific
+instance/
+.pytest_cache/
